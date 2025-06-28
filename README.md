@@ -1,16 +1,6 @@
-# Angular
+# Install dependencies
 
-This directory is a brief example of an [Angular](https://angular.io/) app that can be deployed to Vercel with zero configuration.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
-
-## Deploy Your Own
-
-Deploy your own Angular project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/angular&template=angular)
-
-_Live Example: https://angular-template.vercel.app_
+Run `npm install` to install dependencies
 
 ## Development server
 

@@ -1,0 +1,9 @@
+<div class="client-card">
+  <h3>{{ client.name }}</h3>
+  <p>Title: {{ client.title }}</p>
+  <p>Quote: "{{ client.quote }}"</p>
+  <p>Nationality: {{ client.nationality }}</p>
+  <p>
+    <img [src]="client.avatar" alt="{{ client.name }}'s avatar" />
+  </p>
+</div>
