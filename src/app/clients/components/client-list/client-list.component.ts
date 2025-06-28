@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Client } from './models/client.model';
-import { ClientDataService } from './services/client-data.service';
+import { Client } from '../../models/client.model';
+import { ClientDataService } from '../../services/client-data.service';
 
 @Component({
-  selector: 'app-clients',
-  templateUrl: './clients.component.html',
-  styleUrls: ['./clients.component.scss']
+  selector: 'app-client-list',
+  templateUrl: './client-list.component.html',
+  styleUrls: ['./client-list.component.scss']
 })
-export class ClientsComponent {
+export class ClientListComponent {
   clients$: Observable<Client[]>;
 
   constructor(private clientService: ClientDataService) {
@@ -21,5 +21,4 @@ export class ClientsComponent {
       console.log(clients);
     })
   }
-
 }
