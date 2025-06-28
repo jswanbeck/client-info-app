@@ -1,1 +1,10 @@
-<app-client-list></app-client-list>
+<div class="layout">
+  <aside class="client-list-pane">
+    <app-client-list [clients]="clients" (clientSelected)="onClientSelected($event)">
+    </app-client-list>
+  </aside>
+
+  <section class="client-info-pane" *ngIf="selectedClient">
+    <app-client-info [client]="selectedClient"></app-client-info>
+  </section>
+</div>

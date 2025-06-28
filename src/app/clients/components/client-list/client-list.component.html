@@ -1,3 +1,11 @@
-<div *ngIf="clients$ | async as clients">
-  <app-client-list-item *ngFor="let client of clients" [client]="client"></app-client-list-item>
-</div>
+<ul>
+  <li
+    *ngFor="let client of clients"
+    (click)="clientSelected.emit(client)"
+    (keydown.enter)="clientSelected.emit(client)"
+    tabindex="0"
+    style="cursor: pointer"
+  >
+    {{ client.name }}
+  </li>
+</ul>

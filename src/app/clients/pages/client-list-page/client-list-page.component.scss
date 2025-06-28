@@ -1,0 +1,17 @@
+.layout {
+  display: flex;
+  height: 100vh;
+
+  .client-list-pane {
+    width: 300px;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+    background-color: #fafafa;
+  }
+
+  .client-info-pane {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+}
