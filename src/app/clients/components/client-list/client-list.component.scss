@@ -5,24 +5,6 @@
   overflow-y: auto;
   background: $color-surface;
   border-radius: $radius-lg;
-
-  // Custom scrollbar styles
-  scrollbar-width: thin;
-  scrollbar-color: $color-accent $color-surface;
-
-  &::-webkit-scrollbar {
-    width: 0.6rem;
-    background: $color-surface;
-    border-radius: $radius-md;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: $color-accent;
-    border-radius: $radius-md;
-    min-height: 2rem;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: lighten($color-accent, 10%);
-  }
 }
 
 .client-list-table {
@@ -38,6 +20,9 @@
   background: $color-surface-alt;
   color: $color-text;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   transition:
     background 0.2s,
     color 0.2s;

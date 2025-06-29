@@ -6,4 +6,22 @@ body {
   background: $color-bg;
   color: $color-text;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  // Custom scrollbar styles
+  scrollbar-width: thin;
+  scrollbar-color: $color-accent $color-surface;
+
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+    background: $color-surface;
+    border-radius: $radius-md;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-accent;
+    border-radius: $radius-md;
+    min-height: 2rem;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: lighten($color-accent, 10%);
+  }
 }
