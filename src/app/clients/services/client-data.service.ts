@@ -10,7 +10,7 @@ export class ClientDataService {
   constructor(private http: HttpClient) {}
 
   getClients(): Observable<Client[]> {
-    return this.http.get<Omit<Client, 'id'>[]>('/assets/clients.json').pipe(
+    return this.http.get<Omit<Client, 'id'>[]>('/api/clients').pipe(
       map(clients => clients.map((client, idx) => ({ ...client, id: idx })))
     );
   }
