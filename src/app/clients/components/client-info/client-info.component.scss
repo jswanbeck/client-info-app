@@ -1,6 +1,56 @@
+@import '/src/tokens.scss';
+
 .client-card {
-  border: 1px solid #ccc;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.client-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: $space-xxl;
+  align-items: center;
+}
+
+.client-avatar {
+  min-width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.client-avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.client-name {
+  color: $color-accent;
+  font-size: $space-xxl;
+  max-width: 350px;
+  line-height: 0;
+  font-weight: bold;
+}
+
+.client-subtitle {
+  display: flex;
+  justify-content: space-between;
+  font-size: $space-lg;
+  line-height: $space-md;
+}
+
+.client-quote {
+  color: $color-muted;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background: $color-surface-alt;
+  border-radius: $radius-md;
+  padding: $space-md;
 }

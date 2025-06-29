@@ -1,17 +1,48 @@
+@import '/src/tokens.scss';
+
 .layout {
   display: flex;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  gap: $space-xxl;
+  padding: $space-xxl;
 
   .client-list-pane {
-    width: 300px;
+    width: 400px;
     overflow-y: auto;
-    border-right: 1px solid #ddd;
-    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
 
   .client-info-pane {
-    flex: 1;
-    padding: 2rem;
     overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .client-list-card {
+    width: 100%;
+    background: $color-surface;
+    border-radius: $radius-lg;
+    padding: $space-md;
+    overflow-y: auto;
+  }
+
+  .scrollable {
+    overflow-y: auto;
+  }
+
+  .client-info-card {
+    width: 500px;
+    height: 200px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background: $color-surface;
+    border-radius: $radius-lg;
+    padding: $space-md $space-xxl;
+    overflow: hidden;
   }
 }

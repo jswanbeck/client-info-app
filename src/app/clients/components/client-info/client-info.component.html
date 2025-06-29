@@ -1,9 +1,15 @@
 <div class="client-card">
-  <h3>{{ client.name }}</h3>
-  <p>Title: {{ client.title }}</p>
-  <p>Quote: "{{ client.quote }}"</p>
-  <p>Nationality: {{ client.nationality }}</p>
-  <p>
-    <img [src]="client.avatar" alt="{{ client.name }}'s avatar" />
-  </p>
+  <div class="client-info-container">
+    <div class="client-avatar">
+      <img [src]="client.avatar" alt="{{ client.name }}'s avatar"/>
+    </div>
+    <div>
+      <p class="client-name">{{ client.name }}</p>
+      <div class="client-subtitle">
+        <span class="client-title">{{ client.title }}</span>
+        <span class="client-nationality" *ngIf="client.nationality">{{ client.nationality }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="client-quote" *ngIf="client.quote"><i>{{ client.quote }}</i></div>
 </div>

@@ -1,0 +1,50 @@
+@import '/src/tokens.scss';
+
+.client-list-container {
+  height: 200px;
+  overflow-y: auto;
+  background: $color-surface;
+  border-radius: $radius-lg;
+
+  // Custom scrollbar styles
+  scrollbar-width: thin;
+  scrollbar-color: $color-accent $color-surface;
+
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+    background: $color-surface;
+    border-radius: $radius-md;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-accent;
+    border-radius: $radius-md;
+    min-height: 2rem;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: lighten($color-accent, 10%);
+  }
+}
+
+.client-list-table {
+  list-style: none;
+  padding: 0;
+  margin: 2%;
+}
+
+.client-list-row {
+  padding: $space-md;
+  margin-bottom: $space-sm;
+  border-radius: $radius-md;
+  background: $color-surface-alt;
+  color: $color-text;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.client-list-row:hover,
+.client-list-row:focus {
+  background: $color-surface-hover;
+  color: $color-accent;
+}

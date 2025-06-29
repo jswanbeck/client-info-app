@@ -1,10 +1,14 @@
 <div class="layout">
-  <aside class="client-list-pane">
-    <app-client-list [clients]="clients" (clientSelected)="onClientSelected($event)">
-    </app-client-list>
-  </aside>
-
-  <section class="client-info-pane" *ngIf="selectedClient">
-    <app-client-info [client]="selectedClient"></app-client-info>
+  <section class="client-info-pane">
+    <div class="client-info-card" *ngIf="selectedClient">
+      <app-client-info [client]="selectedClient"></app-client-info>
+    </div>
+  </section>
+  
+  <section class="client-list-pane scrollable">
+    <div class="client-list-card">
+      <app-client-list [clients]="clients" (clientSelected)="onClientSelected($event)">
+      </app-client-list>
+    </div>
   </section>
 </div>
