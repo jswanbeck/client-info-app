@@ -12,8 +12,6 @@
     width: 400px;
     overflow-y: auto;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
   }
 
   .client-info-pane {
@@ -45,5 +43,28 @@
     border-radius: $radius-lg;
     padding: $space-md $space-xxl;
     overflow: hidden;
+  }
+
+  .search-input-container {
+    padding: 2%;
+    margin-bottom: $space-lg;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: $space-sm $space-md;
+    background: $color-surface-alt;
+    color: $color-text;
+    border: none;
+    border-radius: $radius-md;
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.2s;
+
+    &:focus {
+      background: $color-surface-hover;
+    }
   }
 }

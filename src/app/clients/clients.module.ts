@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { ClientsRoutingModule } from './clients-routing.module';
 import { ClientInfoComponent } from './components/client-info/client-info.component';
@@ -8,6 +9,6 @@ import { ClientListPageComponent } from './pages/client-list-page/client-list-pa
 
 @NgModule({
   declarations: [ClientListPageComponent, ClientListComponent, ClientInfoComponent],
-  imports: [CommonModule, ClientsRoutingModule],
+  imports: [CommonModule, FormsModule, ClientsRoutingModule],
 })
 export class ClientsModule {}

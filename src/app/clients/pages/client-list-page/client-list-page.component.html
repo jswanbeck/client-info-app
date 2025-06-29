@@ -1,14 +1,21 @@
 <div class="layout">
-  <section class="client-info-pane">
+  <div class="client-info-pane">
     <div class="client-info-card" *ngIf="selectedClient">
       <app-client-info [client]="selectedClient"></app-client-info>
     </div>
-  </section>
-  
-  <section class="client-list-pane scrollable">
-    <div class="client-list-card">
-      <app-client-list [clients]="clients" (clientSelected)="onClientSelected($event)">
+  </div>
+  <div class="client-list-pane">
+    <div class="client-list-card scrollable">
+    <div class="search-input-container">
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Search clients..."
+        [(ngModel)]="searchTerm"
+      />
+    </div>
+      <app-client-list [clients]="filteredClients" (clientSelected)="onClientSelected($event)">
       </app-client-list>
     </div>
-  </section>
+  </div>
 </div>

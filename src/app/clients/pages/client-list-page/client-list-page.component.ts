@@ -10,6 +10,7 @@ import { ClientDataService } from '../../services/client-data.service';
 export class ClientListPageComponent implements OnInit {
   clients: Client[] = [];
   selectedClient: Client | null = null;
+  searchTerm: string = '';
 
   constructor(private clientService: ClientDataService) {}
 
@@ -18,6 +19,12 @@ export class ClientListPageComponent implements OnInit {
       this.clients = clients;
       this.selectedClient = clients[0];
     });
+  }
+
+  get filteredClients(): Client[] {
+    if (!this.searchTerm) return this.clients;
+    const term = this.searchTerm.toLowerCase();
+    return this.clients.filter(c => c.name.toLowerCase().includes(term));
   }
 
   onClientSelected(client: Client): void {
