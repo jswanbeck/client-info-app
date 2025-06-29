@@ -8,5 +8,6 @@ import { Client } from '../../models/client.model';
 })
 export class ClientListComponent {
   @Input() clients: Client[] = [];
+  @Input() selectedClient: Client | null = null;
   @Output() clientSelected = new EventEmitter<Client>();
 }

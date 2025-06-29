@@ -14,7 +14,10 @@
         [(ngModel)]="searchTerm"
       />
     </div>
-      <app-client-list [clients]="filteredClients" (clientSelected)="onClientSelected($event)">
+      <app-client-list
+        [clients]="filteredClients"
+        [selectedClient]="selectedClient"
+        (clientSelected)="onClientSelected($event)">
       </app-client-list>
     </div>
   </div>

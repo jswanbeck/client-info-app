@@ -6,6 +6,7 @@
       (keydown.enter)="clientSelected.emit(client)"
       tabindex="0"
       class="client-list-row"
+      [class.selected]="selectedClient && client.id === selectedClient.id"
       role="option"
     >
       {{ client.name }}

@@ -48,3 +48,8 @@
   background: $color-surface-hover;
   color: $color-accent;
 }
+
+.client-list-row.selected {
+  outline: 1px solid $color-accent;
+  color: $color-accent;
+}
