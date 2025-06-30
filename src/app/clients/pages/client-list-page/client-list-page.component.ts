@@ -40,11 +40,16 @@ export class ClientListPageComponent implements OnInit {
     let filtered = this.clients;
     if (this.searchTerm) {
       const term = this.searchTerm.toLowerCase();
-      filtered = filtered.filter(c => c.name.toLowerCase().includes(term));
+      filtered = filtered.filter(client => client.name.toLowerCase().includes(term));
     }
     for (const filter of this.activeFilters) {
-      filtered = filtered.filter(c =>
-        (c[filter.key] !== undefined && c[filter.key]?.toString().toLowerCase().includes(filter.value.toLowerCase()))
+      filtered = filtered.filter(client =>
+        (client[filter.key] !== undefined && client[filter.key]?.toString().toLowerCase().includes(filter.value.toLowerCase()))
+      );
+    }
+    if (this.filterField && this.filterValue) {
+      filtered = filtered.filter(client =>
+        (client[this.filterField] !== undefined && client[this.filterField]?.toString().toLowerCase().includes(this.filterValue.toLowerCase()))
       );
     }
     return filtered;
