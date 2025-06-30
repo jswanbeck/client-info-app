@@ -1,42 +1,44 @@
 <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
   <div class="modal-form-layout">
-    <div class="avatar-preview-column">
-      <label>Avatar Preview</label>
-      <div class="avatar-preview">
-        <img *ngIf="clientData.avatar" [src]="clientData.avatar" alt="Avatar preview">
-      </div>
-      <div class="avatar-actions">
-        <button type="button" class="btn-secondary" (click)="randomizeAvatar()">Randomize</button>
-        <button *ngIf="modalType === 'edit'" type="button" class="btn-secondary" (click)="resetAvatar()">Reset</button>
-      </div>
-    </div>
-    <div class="form-fields">
-      <div class="form-group">
-        <label for="client-name">Name</label>
-        <input
-          id="client-name"
-          type="text"
-          [(ngModel)]="clientData.name"
-          name="name"
-          required
-          #nameInput="ngModel"
-        />
-        <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error">
-          Name is required.
+    <div class="form-client-data">
+      <div class="avatar-preview-column">
+        <label>Avatar Preview</label>
+        <div class="avatar-preview">
+          <img *ngIf="clientData.avatar" [src]="clientData.avatar" alt="Avatar preview">
+        </div>
+        <div class="avatar-actions">
+          <button type="button" class="btn-secondary" (click)="randomizeAvatar()">Randomize</button>
+          <button *ngIf="modalType === 'edit'" type="button" class="btn-secondary" (click)="resetAvatar()">Reset</button>
         </div>
       </div>
-      <div class="form-group">
-        <label for="client-title">Title</label>
-        <input id="client-title" type="text" [(ngModel)]="clientData.title" name="title" />
+      <div class="form-fields">
+        <div class="form-group">
+          <label for="client-name">Name</label>
+          <input
+            id="client-name"
+            type="text"
+            [(ngModel)]="clientData.name"
+            name="name"
+            required
+            #nameInput="ngModel"
+          />
+          <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error">
+            Name is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="client-title">Title</label>
+          <input id="client-title" type="text" [(ngModel)]="clientData.title" name="title" />
+        </div>
+        <div class="form-group">
+          <label for="client-quote">Quote</label>
+          <input id="client-quote" type="text" [(ngModel)]="clientData.quote" name="quote" />
+        </div>
       </div>
-      <div class="form-group">
-        <label for="client-quote">Quote</label>
-        <input id="client-quote" type="text" [(ngModel)]="clientData.quote" name="quote" />
-      </div>
-      <div class="modal-actions">
-        <button type="submit" class="btn-primary" [disabled]="clientForm.invalid">{{ modalType === 'create' ? 'Create' : 'Save' }}</button>
-        <button type="cancel" class="btn-secondary">Cancel</button>
-      </div>
+    </div>
+    <div class="modal-actions">
+      <button type="submit" class="btn-primary" [disabled]="clientForm.invalid">{{ modalType === 'create' ? 'Create' : 'Save' }}</button>
+      <button type="cancel" class="btn-secondary">Cancel</button>
     </div>
   </div>
 </form>
