@@ -1,0 +1,99 @@
+@import '/src/tokens.scss';
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1010;
+}
+
+.modal-content {
+  background: $color-surface;
+  color: $color-text;
+  border-radius: $radius-lg;
+  min-width: 350px;
+  min-height: 150px;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: $space-xl;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: $color-muted;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.modal-header {
+  margin-bottom: $space-lg;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  flex: 1 1 auto;
+}
+
+/* Modal transition styles */
+.modal {
+  border-radius: 8px;
+  position: relative;
+  min-width: 320px;
+  min-height: 120px;
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+.modal.show {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
+  pointer-events: auto;
+}
+
+.modal-backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s;
+}

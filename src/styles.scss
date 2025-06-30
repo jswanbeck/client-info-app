@@ -25,3 +25,57 @@ body {
     background: lighten($color-accent, 10%);
   }
 }
+
+button {
+  border: none;
+  border-radius: $radius-md;
+  padding: $space-md $space-xl;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition:
+    background 0.2s,
+    color 0.2s;
+
+  &.btn-primary {
+    background: $color-accent;
+    color: $color-bg;
+
+    &:hover {
+      background: lighten($color-accent, 10%);
+    }
+  }
+
+  &.btn-secondary {
+    background: $color-surface;
+    color: $color-text;
+
+    &:hover {
+      background: lighten($color-surface, 10%);
+    }
+  }
+
+  &.btn-warning {
+    background: $color-danger;
+    color: $color-text;
+
+    &:hover {
+      background: lighten($color-danger, 10%);
+    }
+  }
+}
+
+input[type='text'] {
+  background: $color-surface-alt;
+  color: $color-text;
+  border: none;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+  font-size: 1rem;
+  outline: none;
+  transition: background 0.2s;
+
+  &:focus {
+    background: $color-surface-hover;
+  }
+}

@@ -1,0 +1,40 @@
+@import '/src/tokens.scss';
+
+form {
+  background: $color-surface;
+  color: $color-text;
+  border-radius: $radius-lg;
+  padding: $space-xl;
+  min-width: 350px;
+  max-width: 90vw;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  margin-bottom: $space-md;
+}
+
+label {
+  color: $color-muted;
+  font-size: 0.95rem;
+  margin-bottom: $space-xs;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-md;
+  margin-top: $space-lg;
+}
+
+.error {
+  color: $color-danger;
+  font-size: 0.9rem;
+  margin: 0;
+}
