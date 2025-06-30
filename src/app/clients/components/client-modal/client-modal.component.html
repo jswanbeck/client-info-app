@@ -34,11 +34,24 @@
           <label for="client-quote">Quote</label>
           <input id="client-quote" type="text" [(ngModel)]="clientData.quote" name="quote" />
         </div>
+        <div class="form-group custom-properties-group">
+          <label *ngIf="customProperties.length > 0">Custom Properties</label>
+          <div class="custom-properties-list">
+            <div class="custom-property-row" *ngFor="let prop of customProperties; let i = index">
+              <input type="text" [(ngModel)]="prop.key" name="customKey{{i}}" placeholder="Key" class="custom-key-input" />
+              <input type="text" [(ngModel)]="prop.value" name="customValue{{i}}" placeholder="Value" class="custom-value-input" />
+              <button type="button" class="btn-secondary btn-remove" (click)="removeCustomProperty(i)">Remove</button>
+            </div>
+          </div>
+          <div class="custom-properties-actions">
+            <button type="button" class="btn-secondary" (click)="addCustomProperty()">Add Property</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="modal-actions">
       <button type="submit" class="btn-primary" [disabled]="clientForm.invalid">{{ modalType === 'create' ? 'Create' : 'Save' }}</button>
-      <button type="cancel" class="btn-secondary">Cancel</button>
+      <button type="button" class="btn-secondary" (click)="onCancel($event)">Cancel</button>
     </div>
   </div>
 </form>

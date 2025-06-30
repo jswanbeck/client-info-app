@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { ConfirmationDialogModule } from '../shared/ui/confirmation-dialog/confirmation-dialog.module';
 import { ExpandablePanelModule } from '../shared/ui/expandable-panel/expandable-panel.module';
 import { ModalModule } from '../shared/ui/modal/modal.module';
 import { ClientsRoutingModule } from './clients-routing.module';
@@ -12,6 +13,6 @@ import { ClientListPageComponent } from './pages/client-list-page/client-list-pa
 
 @NgModule({
   declarations: [ClientListPageComponent, ClientListComponent, ClientInfoComponent, ClientModalComponent],
-  imports: [CommonModule, FormsModule, ClientsRoutingModule, ModalModule, ExpandablePanelModule],
+  imports: [CommonModule, FormsModule, ClientsRoutingModule, ModalModule, ExpandablePanelModule, ConfirmationDialogModule],
 })
 export class ClientsModule {}

@@ -1,7 +1,8 @@
 <div class="client-list-container">
   <ul class="client-list-table" role="listbox">
     <li
-      *ngFor="let client of clients"
+      *ngFor="let client of clients; let i = index"
+      #clientRow
       (click)="clientSelected.emit(client)"
       (keydown.enter)="clientSelected.emit(client)"
       tabindex="0"

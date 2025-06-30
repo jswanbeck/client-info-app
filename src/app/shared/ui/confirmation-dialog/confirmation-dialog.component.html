@@ -1,0 +1,8 @@
+<div class="confirm-dialog">
+  <div class="confirm-message">{{ message }}</div>
+  <div class="confirm-actions">
+    <button *ngIf="type === 'ok'" class="btn-primary" (click)="onConfirm()">{{ 'Confirm' }}</button>
+    <button *ngIf="type === 'delete'" class="btn-warning" (click)="onConfirm()">{{ 'Delete' }}</button>
+    <button *ngIf="type === 'delete'" class="btn-secondary" (click)="onCancel()">{{ 'Cancel' }}</button>
+  </div>
+</div>

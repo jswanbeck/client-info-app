@@ -14,6 +14,7 @@ export class ClientListPageComponent implements OnInit {
   showModal = false;
   modalTitle = '';
   modalType: 'create' | 'edit' = 'create';
+  showConfirmDelete = false;
 
   constructor(private clientService: ClientDataService) {}
 
@@ -65,10 +66,21 @@ export class ClientListPageComponent implements OnInit {
 
   onDeleteClient() {
     if (this.selectedClient) {
+      this.showConfirmDelete = true;
+    }
+  }
+
+  onConfirmDelete() {
+    if (this.selectedClient) {
       this.clientService.deleteClient(this.selectedClient.id).subscribe(() => {
         this.clients = this.clients.filter(c => c.id !== this.selectedClient?.id);
         this.selectedClient = null;
+        this.showConfirmDelete = false;
       });
     }
+  }
+
+  onCancelDelete() {
+    this.showConfirmDelete = false;
   }
 }

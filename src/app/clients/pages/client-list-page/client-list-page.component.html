@@ -43,3 +43,12 @@
     (cancelled)="onModalCancelled()">
   </app-client-modal>
 </app-modal>
+
+<app-modal [open]="showConfirmDelete" title="Confirm Delete" (closed)="onCancelDelete()">
+  <app-confirmation-dialog
+    [message]="'Are you sure you want to delete ' + selectedClient?.name + '?'"
+    [type]="'delete'"
+    (confirm)="onConfirmDelete()"
+    (cancel)="onCancelDelete()">
+  </app-confirmation-dialog>
+</app-modal>

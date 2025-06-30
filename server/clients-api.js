@@ -41,8 +41,9 @@ app.post('/api/clients', (req, res) => {
 app.put('/api/clients/:id', (req, res) => {
   const idx = clients.findIndex(c => c.id === Number(req.params.id));
   if (idx === -1) return res.status(404).json({ error: 'Client not found' });
-  clients[idx] = { ...clients[idx], ...req.body, id: clients[idx].id };
-  res.json(clients[idx]);
+  const updatedClient = { id: clients[idx].id, ...req.body };
+  clients[idx] = updatedClient;
+  res.json(updatedClient);
 });
 
 app.delete('/api/clients/:id', (req, res) => {

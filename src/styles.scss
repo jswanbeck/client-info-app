@@ -44,6 +44,12 @@ button {
     &:hover {
       background: lighten($color-accent, 10%);
     }
+
+    &:disabled {
+      background-color: $color-muted;
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 
   &.btn-secondary {
@@ -52,6 +58,12 @@ button {
 
     &:hover {
       background: lighten($color-surface, 10%);
+    }
+
+    &:disabled {
+      color: $color-muted;
+      opacity: 0.5;
+      cursor: not-allowed;
     }
   }
 
@@ -71,7 +83,6 @@ input[type='text'] {
   border: none;
   border-radius: $radius-md;
   padding: $space-sm $space-md;
-  font-size: 1rem;
   outline: none;
   transition: background 0.2s;
 

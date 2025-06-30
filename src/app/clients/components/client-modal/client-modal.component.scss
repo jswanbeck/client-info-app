@@ -49,9 +49,9 @@ label {
 }
 
 .form-client-data {
-  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -79,11 +79,54 @@ label {
 .avatar-actions {
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: $space-sm;
   margin-top: $space-md;
   justify-content: center;
   > button {
     font-size: $space-md;
     padding: $space-sm;
   }
+}
+
+.custom-properties-group {
+  margin-top: $space-xl;
+  background: $color-surface;
+  border-radius: $radius-md;
+}
+
+.custom-properties-list {
+  max-height: 160px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  margin-bottom: $space-sm;
+}
+
+.custom-property-row {
+  display: flex;
+  flex-direction: row;
+  gap: $space-xs;
+  align-items: center;
+}
+
+.custom-key-input,
+.custom-value-input {
+  padding: $space-xs;
+  border: 1px solid $color-surface-hover;
+  border-radius: $radius-md;
+}
+
+.btn-remove {
+  color: $color-danger;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: $space-lg;
+  padding: $space-xs $space-sm;
+}
+
+.custom-properties-actions {
+  display: flex;
+  justify-content: flex-end;
 }

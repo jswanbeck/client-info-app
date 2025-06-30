@@ -17,23 +17,37 @@ export class ClientModalComponent implements OnChanges {
   clientData: Partial<Client> = {};
   initialAvatar: string | undefined;
 
+  customProperties: { key: string; value: string | number | undefined }[] = [];
+
   constructor(private clientService: ClientDataService, private avatarService: AvatarService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.modalType === 'edit' && this.selectedClient) {
       this.clientData = { ...this.selectedClient };
       this.initialAvatar = this.selectedClient.avatar;
+      const baseClientProperties = ['id', 'name', 'title', 'avatar', 'quote'];
+      this.customProperties = Object.keys(this.selectedClient)
+        .filter(key => !baseClientProperties.includes(key))
+        .map(key => ({ key, value: this.selectedClient![key] }));
     } else {
       const randomAvatar = this.avatarService.getRandomAvatarUrl();
       this.clientData = {
         name: '',
         title: '',
         avatar: randomAvatar,
-        quote: '',
-        nationality: ''
+        quote: ''
       };
       this.initialAvatar = randomAvatar;
+      this.customProperties = [];
     }
+  }
+
+  addCustomProperty() {
+    this.customProperties.push({ key: '', value: '' });
+  }
+
+  removeCustomProperty(index: number) {
+    this.customProperties.splice(index, 1);
   }
 
   randomizeAvatar() {
@@ -50,6 +64,17 @@ export class ClientModalComponent implements OnChanges {
     if (!this.clientData.name || this.clientData.name.trim() === '') {
       return;
     }
+    const baseClientProperties = ['id', 'name', 'title', 'avatar', 'quote'];
+    Object.keys(this.clientData).forEach(key => {
+      if (!baseClientProperties.includes(key)) {
+        delete this.clientData[key as keyof typeof this.clientData];
+      }
+    });
+    this.customProperties.forEach(prop => {
+      if (prop.key) {
+        this.clientData[prop.key as keyof Client] = prop.value;
+      }
+    });
     if (this.modalType === 'create') {
       this.clientService.createClient(this.clientData).subscribe(client => {
         this.submitted.emit(client);
@@ -61,7 +86,8 @@ export class ClientModalComponent implements OnChanges {
     }
   }
 
-  onCancel() {
+  onCancel($event: MouseEvent) {
+    $event.stopPropagation();
     this.cancelled.emit();
   }
 }
