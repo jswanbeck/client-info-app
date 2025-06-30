@@ -70,3 +70,39 @@
   font-size: $space-md;
   width: 100%;
 }
+
+.client-custom-properties {
+  max-height: 300px;
+  overflow-y: auto;
+  background: $color-surface-alt;
+  border-radius: $radius-md;
+  padding: $space-md;
+  margin-top: $space-md;
+}
+
+.custom-property {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  word-wrap: break-word;
+  justify-content: space-between;
+  gap: $space-xs;
+  padding: $space-xs 0;
+  border-bottom: 1px solid $color-surface-hover;
+  font-size: $space-md;
+}
+
+.custom-property:last-child {
+  border-bottom: none;
+}
+
+.custom-key {
+  width: 40%;
+  color: $color-muted;
+  font-weight: bold;
+}
+
+.custom-value {
+  width: 55%;
+  color: $color-text;
+}
