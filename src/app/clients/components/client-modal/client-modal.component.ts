@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Client } from '../../models/client.model';
+import { AvatarService } from '../../services/avatar.service';
 import { ClientDataService } from '../../services/client-data.service';
 
 @Component({
@@ -14,20 +15,34 @@ export class ClientModalComponent implements OnChanges {
   @Output() cancelled = new EventEmitter<void>();
 
   clientData: Partial<Client> = {};
+  initialAvatar: string | undefined;
 
-  constructor(private clientService: ClientDataService) {}
+  constructor(private clientService: ClientDataService, private avatarService: AvatarService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.modalType === 'edit' && this.selectedClient) {
       this.clientData = { ...this.selectedClient };
+      this.initialAvatar = this.selectedClient.avatar;
     } else {
+      const randomAvatar = this.avatarService.getRandomAvatarUrl();
       this.clientData = {
         name: '',
         title: '',
-        avatar: '',
+        avatar: randomAvatar,
         quote: '',
         nationality: ''
       };
+      this.initialAvatar = randomAvatar;
+    }
+  }
+
+  randomizeAvatar() {
+    this.clientData.avatar = this.avatarService.getRandomAvatarUrl();
+  }
+
+  resetAvatar() {
+    if (this.initialAvatar) {
+      this.clientData.avatar = this.initialAvatar;
     }
   }
 

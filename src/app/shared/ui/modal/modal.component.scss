@@ -45,6 +45,7 @@
   border: none;
   color: $color-muted;
   font-size: 2rem;
+  padding: 0;
   cursor: pointer;
   transition: color 0.2s;
   &:hover {
@@ -54,6 +55,7 @@
 
 .modal-header {
   margin-bottom: $space-lg;
+  padding: $space-md $space-xl;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
