@@ -4,7 +4,6 @@ export interface Client {
   title: string;
   avatar?: string;
   quote?: string;
-  nationality?: string;
   
   [key: string]: string | number | undefined;
 }

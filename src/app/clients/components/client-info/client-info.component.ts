@@ -14,7 +14,7 @@ export class ClientInfoComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['client'] && this.client) {
-      const baseClientProperties = ['id', 'name', 'title', 'avatar', 'quote', 'nationality'];
+      const baseClientProperties = ['id', 'name', 'title', 'avatar', 'quote'];
       this.customProperties = Object.keys(this.client)
         .filter(key => !baseClientProperties.includes(key))
         .map(key => ({ key, value: this.client[key] }));

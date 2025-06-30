@@ -36,11 +36,17 @@
   width: 100%;
 }
 
+.client-name-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $space-xl;
+}
+
 .client-name {
   color: $color-accent;
   font-size: $space-xl;
   max-width: 350px;
-  margin: $space-lg 0;
+  margin: $space-sm 0;
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -48,14 +54,15 @@
   text-align: center;
 }
 
-.client-subtitle {
+.client-title {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100%;
-  align-items: center;
   font-size: $space-lg;
-  gap: $space-xs;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .client-quote {

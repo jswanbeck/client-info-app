@@ -5,14 +5,13 @@
       <img [src]="client.avatar" alt="{{ client.name }}'s avatar"/>
     </div>
     <div class="client-data">
-      <p class="client-name">{{ client.name }}</p>
-      <div class="client-subtitle">
+      <div class="client-name-title">
+        <span class="client-name">{{ client.name }}</span>
         <span class="client-title">{{ client.title }}</span>
-        <span class="client-nationality" *ngIf="client.nationality">{{ client.nationality }}</span>
       </div>
       <div class="client-custom-properties" *ngIf="customProperties.length">
         <div class="custom-property" *ngFor="let prop of customProperties">
-          <span class="custom-key">{{ prop.key }}:</span>
+          <span class="custom-key">{{ prop.key }}</span>
           <span class="custom-value">{{ prop.value }}</span>
         </div>
       </div>
