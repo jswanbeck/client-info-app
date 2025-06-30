@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 
-const clientsFilePath = path.join(__dirname, '..', 'src', 'assets', 'clients.json');
+const clientsFilePath = path.join(__dirname, '..', 'src', 'assets', 'data', 'clients.json');
 
 let clients = [];
 

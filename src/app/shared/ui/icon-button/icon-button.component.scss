@@ -1,0 +1,29 @@
+@import '/src/tokens.scss';
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  background: $color-surface;
+  color: $color-text;
+  border: none;
+  border-radius: $radius-md;
+  padding: $space-sm $space-md;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  outline: none;
+
+  &:hover {
+    background: $color-surface-hover;
+    color: $color-accent;
+  }
+}
+
+img {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+}

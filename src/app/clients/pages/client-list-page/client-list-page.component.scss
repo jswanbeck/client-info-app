@@ -3,7 +3,6 @@
 .layout {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: $space-xxl;
   padding: $space-xxl;
   height: fit-content;
@@ -15,10 +14,15 @@
   }
 
   .client-info-pane {
-    overflow-y: auto;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .buttons-panel {
+    display: flex;
+    flex-direction: row;
+    gap: $space-lg;
   }
 
   .client-list-card {

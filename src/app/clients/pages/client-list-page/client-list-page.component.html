@@ -3,6 +3,11 @@
     <div class="client-info-card" *ngIf="selectedClient">
       <app-client-info [client]="selectedClient"></app-client-info>
     </div>
+    <div class="buttons-panel">
+      <app-icon-button icon="new" label="Create"></app-icon-button>
+      <app-icon-button icon="edit" label="Edit"></app-icon-button>
+      <app-icon-button icon="delete" label="Delete"></app-icon-button>
+    </div>
   </div>
   <div class="client-list-pane">
     <div class="client-list-card scrollable">
