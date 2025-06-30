@@ -4,20 +4,25 @@
   display: flex;
   flex-direction: column;
   gap: $space-lg;
+  align-items: center;
 }
 
 .client-info-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  gap: $space-xxl;
+  flex-direction: column;
   align-items: center;
+  gap: $space-lg;
+  width: 90%;
 }
 
 .client-avatar {
-  min-width: 120px;
-  height: 120px;
+  min-width: 128px;
+  width: 128px;
+  height: 128px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .client-avatar img {
@@ -26,24 +31,31 @@
 }
 
 .client-data {
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
 .client-name {
   color: $color-accent;
-  font-size: $space-xxl;
+  font-size: $space-xl;
   max-width: 350px;
   margin: $space-lg 0;
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: center;
 }
 
 .client-subtitle {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  width: 100%;
+  align-items: center;
   font-size: $space-lg;
+  gap: $space-xs;
 }
 
 .client-quote {
@@ -54,4 +66,7 @@
   background: $color-surface-alt;
   border-radius: $radius-md;
   padding: $space-md;
+  text-align: center;
+  font-size: $space-md;
+  width: 90%;
 }

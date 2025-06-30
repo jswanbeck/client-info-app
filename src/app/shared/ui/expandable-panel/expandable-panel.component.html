@@ -1,0 +1,10 @@
+<div *ngIf="open" class="expandable-panel-backdrop" (click)="close()"></div>
+<div class="expandable-panel" [class.open]="open">
+  <div class="expandable-panel-header">
+    <span class="expandable-panel-title">{{ title }}</span>
+    <button class="expandable-panel-close" (click)="close()" aria-label="Close">&times;</button>
+  </div>
+  <div class="expandable-panel-content">
+    <ng-content></ng-content>
+  </div>
+</div>

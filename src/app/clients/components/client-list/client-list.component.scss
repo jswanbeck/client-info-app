@@ -1,10 +1,10 @@
 @import '/src/tokens.scss';
 
 .client-list-container {
-  height: 200px;
+  height: 80%;
   overflow-y: auto;
   background: $color-surface;
-  border-radius: $radius-lg;
+  border-radius: $radius-md;
 }
 
 .client-list-table {

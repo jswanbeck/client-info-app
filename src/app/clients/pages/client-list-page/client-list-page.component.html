@@ -1,24 +1,17 @@
 <div class="layout">
-  <div class="client-info-pane">
-    <div class="client-info-card" *ngIf="selectedClient">
-      <app-client-info [client]="selectedClient"></app-client-info>
-    </div>
-    <div class="buttons-panel">
-      <button class="btn-secondary" (click)="onOpenModal('create')">Create</button>
-      <button class="btn-secondary" (click)="onOpenModal('edit')">Edit</button>
-      <button class="btn-warning" (click)="onDeleteClient()">Delete</button>
-    </div>
+  <div>
+    <button class="btn-primary" (click)="onOpenModal('create')">New Client</button>
   </div>
   <div class="client-list-pane">
-    <div class="client-list-card scrollable">
-    <div class="search-input-container">
-      <input
-        class="search-input"
-        type="text"
-        placeholder="Search clients..."
-        [(ngModel)]="searchTerm"
-      />
-    </div>
+    <div class="client-list-card">
+      <div class="search-input-container">
+        <input
+          class="search-input"
+          type="text"
+          placeholder="Search clients..."
+          [(ngModel)]="searchTerm"
+        />
+      </div>
       <app-client-list
         [clients]="filteredClients"
         [selectedClient]="selectedClient"
@@ -28,11 +21,25 @@
   </div>
 </div>
 
-    <app-modal [open]="showModal" [title]="modalTitle" (closed)="onCloseModal()">
-      <app-client-modal
-        [selectedClient]="selectedClient"
-        [modalType]="modalType"
-        (submitted)="onModalSubmitted($event)"
-        (cancelled)="onModalCancelled()">
-      </app-client-modal>
-    </app-modal>
+<app-expandable-panel
+  [open]="selectedClient !== null"
+  [title]="selectedClient?.name || 'Client Info'"
+  (closed)="selectedClient = null"
+>
+  <ng-container *ngIf="selectedClient">
+    <app-client-info [client]="selectedClient"></app-client-info>
+    <div class="buttons-panel" style="margin-top: 2rem;">
+      <button class="btn-secondary" (click)="onOpenModal('edit')">Edit</button>
+      <button class="btn-warning" (click)="onDeleteClient()">Delete</button>
+    </div>
+  </ng-container>
+</app-expandable-panel>
+
+<app-modal [open]="showModal" [title]="modalTitle" (closed)="onCloseModal()">
+  <app-client-modal
+    [selectedClient]="selectedClient"
+    [modalType]="modalType"
+    (submitted)="onModalSubmitted($event)"
+    (cancelled)="onModalCancelled()">
+  </app-client-modal>
+</app-modal>

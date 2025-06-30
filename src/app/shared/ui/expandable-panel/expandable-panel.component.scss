@@ -1,0 +1,66 @@
+@import '/src/tokens.scss';
+
+.expandable-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: $color-surface;
+  color: $color-text;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.25);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+
+  &.open {
+    transform: translateX(0);
+  }
+}
+
+.expandable-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-lg;
+  border-bottom: 1px solid $color-surface-hover;
+  background: $color-surface-alt;
+}
+
+.expandable-panel-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: $color-text;
+}
+
+.expandable-panel-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  color: $color-muted;
+  transition: color 0.2s;
+  padding: 0 $space-sm;
+  border-radius: $radius-md;
+
+  &:hover {
+    color: $color-accent;
+    background: $color-surface-hover;
+  }
+}
+
+.expandable-panel-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: $space-lg;
+}
+
+.expandable-panel-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}

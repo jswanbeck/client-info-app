@@ -8,6 +8,17 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s;
+  }
 }
 
 .modal {
@@ -20,6 +31,22 @@
   align-items: center;
   justify-content: center;
   z-index: 1010;
+  border-radius: 8px;
+  position: relative;
+  min-width: 320px;
+  min-height: 120px;
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity 0.3s,
+      transform 0.3s;
+    pointer-events: auto;
+  }
 }
 
 .modal-content {
@@ -64,38 +91,4 @@
 
 .modal-body {
   flex: 1 1 auto;
-}
-
-/* Modal transition styles */
-.modal {
-  border-radius: 8px;
-  position: relative;
-  min-width: 320px;
-  min-height: 120px;
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
-}
-
-.modal.show {
-  opacity: 1;
-  transform: scale(1);
-  transition:
-    opacity 0.3s,
-    transform 0.3s;
-  pointer-events: auto;
-}
-
-.modal-backdrop {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.modal-backdrop.show {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 0.3s;
 }

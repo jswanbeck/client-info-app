@@ -21,7 +21,6 @@ export class ClientListPageComponent implements OnInit {
     this.clientService.getClients().subscribe(clients => {
       console.log(clients);
       this.clients = clients;
-      this.selectedClient = clients[0];
     });
   }
 
@@ -32,7 +31,11 @@ export class ClientListPageComponent implements OnInit {
   }
 
   onClientSelected(client: Client): void {
-    this.selectedClient = client;
+    if (this.selectedClient && this.selectedClient.id === client.id) {
+      this.selectedClient = null;
+    } else {
+      this.selectedClient = client;
+    }
   }
 
   onOpenModal(type: 'create' | 'edit') {
