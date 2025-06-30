@@ -4,7 +4,7 @@ form {
   background: $color-surface;
   color: $color-text;
   border-radius: $radius-lg;
-  padding: $space-xl;
+  padding: $space-xxl;
   width: 600px;
   min-height: 150px;
   display: flex;
@@ -21,7 +21,7 @@ form {
 
 label {
   color: $color-muted;
-  font-size: 0.95rem;
+  font-size: $space-lg;
   margin-bottom: $space-xs;
 }
 
@@ -34,7 +34,7 @@ label {
 
 .error {
   color: $color-danger;
-  font-size: 0.9rem;
+  font-size: $space-lg;
   margin: 0;
 }
 
@@ -97,6 +97,7 @@ label {
 .custom-properties-list {
   max-height: 160px;
   overflow-y: auto;
+  width: 500px;
   display: flex;
   flex-direction: column;
   gap: $space-xs;
@@ -112,7 +113,6 @@ label {
 
 .custom-key-input,
 .custom-value-input {
-  padding: $space-xs;
   border: 1px solid $color-surface-hover;
   border-radius: $radius-md;
 }
@@ -123,7 +123,7 @@ label {
   border: none;
   cursor: pointer;
   font-size: $space-lg;
-  padding: $space-xs $space-sm;
+  padding: $space-sm;
 }
 
 .custom-properties-actions {

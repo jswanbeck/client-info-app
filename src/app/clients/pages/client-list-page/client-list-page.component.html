@@ -2,12 +2,41 @@
   <div>
     <button class="btn-primary" (click)="onOpenModal('create')">New Client</button>
   </div>
+
+  <div>
+    <div class="filter-panel">
+      <div class="filter-fields">
+        <label>
+          Field:
+          <select [(ngModel)]="filterField" class="field-select" [class.select-invalid]="filterField === ''">
+            <option value="" disabled selected hidden>Select a field &#9660;</option>
+            <option *ngFor="let key of filterableKeys" [value]="key">{{ key }}</option>
+          </select>
+        </label>
+        <label>
+          Value:
+          <input type="text" placeholder="Filter value" [(ngModel)]="filterValue" />
+        </label>
+      </div>
+      <div class="filter-buttons">
+        <button class="btn-primary" (click)="addFilter()">Add Filter</button>
+        <button class="btn-secondary" (click)="clearFilters()">Clear</button>
+      </div>
+    </div>
+  
+    <div *ngIf="activeFilters.length > 0" class="active-filters">
+      <span *ngFor="let filter of activeFilters; let i = index" class="filter-chip" (click)="removeFilter(i)">
+        {{ filter.key }}: {{ filter.value }}
+      </span>
+    </div>
+  </div>
+
   <div class="client-list-pane">
     <div class="client-list-card">
       <div class="search-input-container">
         <input
           class="search-input"
-          type="text"
+          type="search"
           placeholder="Search clients..."
           [(ngModel)]="searchTerm"
         />

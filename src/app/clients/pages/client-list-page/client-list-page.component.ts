@@ -16,19 +16,53 @@ export class ClientListPageComponent implements OnInit {
   modalType: 'create' | 'edit' = 'create';
   showConfirmDelete = false;
 
+  filterableKeys: Set<string> = new Set<string>();
+  filterField: string = '';
+  filterValue: string = '';
+  activeFilters: { key: string; value: string }[] = [];
+
   constructor(private clientService: ClientDataService) {}
 
   ngOnInit(): void {
     this.clientService.getClients().subscribe(clients => {
-      console.log(clients);
       this.clients = clients;
+      clients.forEach(client => {
+        Object.keys(client).forEach(key => {
+            if (key !== 'id' && key !== 'avatar') {
+              this.filterableKeys.add(key);
+            }
+          });
+      });
     });
   }
 
   get filteredClients(): Client[] {
-    if (!this.searchTerm) return this.clients;
-    const term = this.searchTerm.toLowerCase();
-    return this.clients.filter(c => c.name.toLowerCase().includes(term));
+    let filtered = this.clients;
+    if (this.searchTerm) {
+      const term = this.searchTerm.toLowerCase();
+      filtered = filtered.filter(c => c.name.toLowerCase().includes(term));
+    }
+    for (const filter of this.activeFilters) {
+      filtered = filtered.filter(c =>
+        (c[filter.key] !== undefined && c[filter.key]?.toString().toLowerCase().includes(filter.value.toLowerCase()))
+      );
+    }
+    return filtered;
+  }
+
+  addFilter() {
+    if (this.filterField && this.filterValue) {
+      this.activeFilters.push({ key: this.filterField, value: this.filterValue });
+      this.filterValue = '';
+    }
+  }
+
+  removeFilter(index: number) {
+    this.activeFilters.splice(index, 1);
+  }
+
+  clearFilters() {
+    this.activeFilters = [];
   }
 
   onClientSelected(client: Client): void {

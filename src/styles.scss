@@ -77,16 +77,27 @@ button {
   }
 }
 
-input[type='text'] {
+input[type='text'],
+input[type='search'] {
   background: $color-surface-alt;
   color: $color-text;
   border: none;
   border-radius: $radius-md;
-  padding: $space-sm $space-md;
+  padding: $space-md;
   outline: none;
   transition: background 0.2s;
 
   &:focus {
     background: $color-surface-hover;
+  }
+
+  &::-webkit-search-cancel-button {
+    cursor: pointer;
+    transition: filter 0.2s;
+    filter: contrast(0) brightness(1);
+
+    &:hover {
+      filter: contrast(1) brightness(2);
+    }
   }
 }
