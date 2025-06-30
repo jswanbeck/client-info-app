@@ -30,15 +30,17 @@
 }
 
 .expandable-panel-title {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: $space-lg;
   color: $color-text;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .expandable-panel-close {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: $space-xl;
   cursor: pointer;
   line-height: 1;
   color: $color-muted;

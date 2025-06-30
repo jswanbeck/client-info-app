@@ -5,4 +5,6 @@ export interface Client {
   avatar?: string;
   quote?: string;
   nationality?: string;
+  
+  [key: string]: string | number | undefined;
 }
