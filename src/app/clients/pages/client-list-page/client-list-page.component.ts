@@ -27,10 +27,10 @@ export class ClientListPageComponent implements OnInit {
       this.clients = clients;
       clients.forEach(client => {
         Object.keys(client).forEach(key => {
-            if (key !== 'id' && key !== 'avatar') {
-              this.filterableKeys.add(key);
-            }
-          });
+          if (key !== 'id' && key !== 'avatar') {
+            this.filterableKeys.add(key);
+          }
+        });
       });
     });
   }
@@ -39,19 +39,37 @@ export class ClientListPageComponent implements OnInit {
     let filtered = this.clients;
     if (this.searchTerm) {
       const term = this.searchTerm.toLowerCase();
-      filtered = filtered.filter(client => client.name.toLowerCase().includes(term));
+      filtered = filtered.filter(
+        client =>
+          client.name.toLowerCase().includes(term) || client.title.toLowerCase().includes(term),
+      );
     }
     for (const filter of this.activeFilters) {
-      filtered = filtered.filter(client =>
-        (client[filter.key] !== undefined && client[filter.key]?.toString().toLowerCase().includes(filter.value.toLowerCase()))
+      filtered = filtered.filter(
+        client =>
+          client[filter.key] !== undefined &&
+          client[filter.key]?.toString().toLowerCase().includes(filter.value.toLowerCase()),
       );
     }
     if (this.filterField && this.filterValue) {
-      filtered = filtered.filter(client =>
-        (client[this.filterField] !== undefined && client[this.filterField]?.toString().toLowerCase().includes(this.filterValue.toLowerCase()))
+      filtered = filtered.filter(
+        client =>
+          client[this.filterField] !== undefined &&
+          client[this.filterField]
+            ?.toString()
+            .toLowerCase()
+            .includes(this.filterValue.toLowerCase()),
       );
     }
     return filtered;
+  }
+
+  get filterButtonEnabled(): boolean {
+    return this.filterField.length > 0 && this.filterValue.length > 0;
+  }
+
+  get clearButtonEnabled(): boolean {
+    return this.searchTerm.length > 0 || this.activeFilters.length > 0 || this.filterButtonEnabled;
   }
 
   addFilter() {
@@ -95,7 +113,7 @@ export class ClientListPageComponent implements OnInit {
       this.clients = [...this.clients, client as Client];
       this.selectedClient = client as Client;
     } else if (this.modalType === 'edit') {
-      this.clients = this.clients.map(c => c.id === client.id ? client as Client : c);
+      this.clients = this.clients.map(c => (c.id === client.id ? (client as Client) : c));
       this.selectedClient = client as Client;
     }
     this.showModal = false;

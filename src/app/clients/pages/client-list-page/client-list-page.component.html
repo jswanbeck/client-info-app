@@ -8,24 +8,41 @@
       <div class="filter-fields">
         <label>
           Field:
-          <select [(ngModel)]="filterField" class="field-select" [class.select-invalid]="filterField === ''">
+          <select
+            [(ngModel)]="filterField"
+            class="field-select"
+            [class.select-invalid]="filterField === ''"
+          >
             <option value="" disabled selected hidden>Select a field &#9660;</option>
             <option *ngFor="let key of filterableKeys" [value]="key">{{ key }}</option>
           </select>
         </label>
         <label>
           Value:
-          <input type="text" placeholder="Filter value" [(ngModel)]="filterValue" (keydown.enter)="addFilter()" />
+          <input
+            type="text"
+            placeholder="Filter value"
+            [(ngModel)]="filterValue"
+            (keydown.enter)="addFilter()"
+          />
         </label>
       </div>
       <div class="filter-buttons">
-        <button class="btn-primary" (click)="addFilter()">Add Filter</button>
-        <button class="btn-secondary" (click)="clearFilters()">Clear</button>
+        <button class="btn-primary" (click)="addFilter()" [disabled]="!filterButtonEnabled">
+          Add Filter
+        </button>
+        <button class="btn-secondary" (click)="clearFilters()" [disabled]="!clearButtonEnabled">
+          Clear
+        </button>
       </div>
     </div>
-  
+
     <div *ngIf="activeFilters.length > 0" class="active-filters">
-      <span *ngFor="let filter of activeFilters; let i = index" class="filter-chip" (click)="removeFilter(i)">
+      <span
+        *ngFor="let filter of activeFilters; let i = index"
+        class="filter-chip"
+        (click)="removeFilter(i)"
+      >
         {{ filter.key }}: {{ filter.value }}
       </span>
     </div>
@@ -44,7 +61,8 @@
       <app-client-list
         [clients]="filteredClients"
         [selectedClient]="selectedClient"
-        (clientSelected)="onClientSelected($event)">
+        (clientSelected)="onClientSelected($event)"
+      >
       </app-client-list>
     </div>
   </div>
@@ -57,7 +75,7 @@
 >
   <ng-container *ngIf="selectedClient">
     <app-client-info [client]="selectedClient"></app-client-info>
-    <div class="buttons-panel" style="margin-top: 2rem;">
+    <div class="buttons-panel" style="margin-top: 2rem">
       <button class="btn-secondary" (click)="onOpenModal('edit')">Edit</button>
       <button class="btn-warning" (click)="onDeleteClient()">Delete</button>
     </div>
@@ -69,7 +87,8 @@
     [selectedClient]="selectedClient"
     [modalType]="modalType"
     (submitted)="onModalSubmitted($event)"
-    (cancelled)="onModalCancelled()">
+    (cancelled)="onModalCancelled()"
+  >
   </app-client-modal>
 </app-modal>
 
@@ -78,6 +97,7 @@
     [message]="'Are you sure you want to delete ' + selectedClient?.name + '?'"
     [type]="'delete'"
     (confirm)="onConfirmDelete()"
-    (cancel)="onCancelDelete()">
+    (cancel)="onCancelDelete()"
+  >
   </app-confirmation-dialog>
 </app-modal>

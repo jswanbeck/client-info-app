@@ -5,6 +5,6 @@ import { ExpandablePanelComponent } from './expandable-panel.component';
 @NgModule({
   declarations: [ExpandablePanelComponent],
   imports: [CommonModule],
-  exports: [ExpandablePanelComponent]
+  exports: [ExpandablePanelComponent],
 })
 export class ExpandablePanelModule {}

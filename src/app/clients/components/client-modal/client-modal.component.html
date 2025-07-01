@@ -4,11 +4,18 @@
       <div class="avatar-preview-column">
         <label>Avatar Preview</label>
         <div class="avatar-preview">
-          <img *ngIf="clientData.avatar" [src]="clientData.avatar" alt="Avatar preview">
+          <img *ngIf="clientData.avatar" [src]="clientData.avatar" alt="Avatar preview" />
         </div>
         <div class="avatar-actions">
           <button type="button" class="btn-secondary" (click)="randomizeAvatar()">Randomize</button>
-          <button *ngIf="modalType === 'edit'" type="button" class="btn-secondary" (click)="resetAvatar()">Reset</button>
+          <button
+            *ngIf="modalType === 'edit'"
+            type="button"
+            class="btn-secondary"
+            (click)="resetAvatar()"
+          >
+            Reset
+          </button>
         </div>
       </div>
       <div class="form-fields">
@@ -29,31 +36,66 @@
         </div>
         <div class="form-group">
           <label for="client-title">Title</label>
-          <input id="client-title" type="text" [(ngModel)]="clientData.title" name="title" (keydown.enter)="onEnter($event)" />
+          <input
+            id="client-title"
+            type="text"
+            [(ngModel)]="clientData.title"
+            name="title"
+            (keydown.enter)="onEnter($event)"
+          />
         </div>
         <div class="form-group">
           <label for="client-quote">Quote</label>
-          <input id="client-quote" type="text" [(ngModel)]="clientData.quote" name="quote" (keydown.enter)="onEnter($event)" />
+          <input
+            id="client-quote"
+            type="text"
+            [(ngModel)]="clientData.quote"
+            name="quote"
+            (keydown.enter)="onEnter($event)"
+          />
         </div>
         <div class="form-group custom-properties-group">
           <label *ngIf="customProperties.length > 0">Custom Properties</label>
           <div class="custom-properties-list">
             <div class="custom-property-row" *ngFor="let prop of customProperties; let i = index">
-              <input type="text" [(ngModel)]="prop.key" name="customKey{{i}}" placeholder="Key" class="custom-key-input" (keydown.enter)="onEnter($event)" />
-              <input type="text" [(ngModel)]="prop.value" name="customValue{{i}}" placeholder="Value" class="custom-value-input" (keydown.enter)="onEnter($event)" />
-              <button type="button" class="btn-secondary btn-remove" (click)="removeCustomProperty(i)">Remove</button>
+              <input
+                type="text"
+                [(ngModel)]="prop.key"
+                name="customKey{{ i }}"
+                placeholder="Key"
+                class="custom-key-input"
+                (keydown.enter)="onEnter($event)"
+              />
+              <input
+                type="text"
+                [(ngModel)]="prop.value"
+                name="customValue{{ i }}"
+                placeholder="Value"
+                class="custom-value-input"
+                (keydown.enter)="onEnter($event)"
+              />
+              <button
+                type="button"
+                class="btn-secondary btn-remove"
+                (click)="removeCustomProperty(i)"
+              >
+                Remove
+              </button>
             </div>
           </div>
           <div class="custom-properties-actions">
-            <button type="button" class="btn-secondary" (click)="addCustomProperty()">Add Property</button>
+            <button type="button" class="btn-secondary" (click)="addCustomProperty()">
+              Add Property
+            </button>
           </div>
         </div>
       </div>
     </div>
     <div class="modal-actions">
-      <button type="submit" class="btn-primary" [disabled]="clientForm.invalid">{{ modalType === 'create' ? 'Create' : 'Save' }}</button>
+      <button type="submit" class="btn-primary" [disabled]="clientForm.invalid">
+        {{ modalType === 'create' ? 'Create' : 'Save' }}
+      </button>
       <button type="button" class="btn-secondary" (click)="onCancel($event)">Cancel</button>
     </div>
   </div>
 </form>
-

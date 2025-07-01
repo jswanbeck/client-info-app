@@ -1,8 +1,10 @@
 <div class="client-card">
   <div class="client-info-container">
-    <div class="client-quote" *ngIf="client.quote"><i>{{ client.quote }}</i></div>
+    <div class="client-quote" *ngIf="client.quote">
+      <i>{{ client.quote }}</i>
+    </div>
     <div class="client-avatar">
-      <img [src]="client.avatar" alt="{{ client.name }}'s avatar"/>
+      <img [src]="client.avatar" alt="{{ client.name }}'s avatar" />
     </div>
     <div class="client-data">
       <div class="client-name-title">

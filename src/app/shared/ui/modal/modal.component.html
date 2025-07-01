@@ -1,15 +1,11 @@
-<div 
-  class="modal-backdrop" 
+<div
+  class="modal-backdrop"
   [class.show]="open"
   (mousedown)="onBackdropMouseDown($event)"
   (mouseup)="onBackdropMouseUp($event)"
   (click)="onBackdropClick($event)"
 >
-  <div 
-    class="modal" 
-    [class.show]="open" 
-    (click)="$event.stopPropagation()"
-  >
+  <div class="modal" [class.show]="open" (click)="$event.stopPropagation()">
     <div class="modal-content">
       <div class="modal-header" *ngIf="title">
         <h2 class="modal-title">{{ title }}</h2>

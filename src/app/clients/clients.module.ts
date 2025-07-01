@@ -10,7 +10,12 @@ import { ClientModalComponent } from './components/client-modal/client-modal.com
 import { ClientListPageComponent } from './pages/client-list-page/client-list-page.component';
 
 @NgModule({
-  declarations: [ClientListPageComponent, ClientListComponent, ClientInfoComponent, ClientModalComponent],
+  declarations: [
+    ClientListPageComponent,
+    ClientListComponent,
+    ClientInfoComponent,
+    ClientModalComponent,
+  ],
   imports: [CommonModule, FormsModule, ClientsRoutingModule, SharedUiModule],
 })
 export class ClientsModule {}

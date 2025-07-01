@@ -6,7 +6,7 @@ import { ClientDataService } from '../../services/client-data.service';
 @Component({
   selector: 'app-client-modal',
   templateUrl: './client-modal.component.html',
-  styleUrls: ['./client-modal.component.scss']
+  styleUrls: ['./client-modal.component.scss'],
 })
 export class ClientModalComponent implements OnChanges {
   @Input() selectedClient: Client | null = null;
@@ -19,7 +19,10 @@ export class ClientModalComponent implements OnChanges {
 
   customProperties: { key: string; value: string | number | undefined }[] = [];
 
-  constructor(private clientService: ClientDataService, private avatarService: AvatarService) {}
+  constructor(
+    private clientService: ClientDataService,
+    private avatarService: AvatarService,
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.modalType === 'edit' && this.selectedClient) {
@@ -35,7 +38,7 @@ export class ClientModalComponent implements OnChanges {
         name: '',
         title: '',
         avatar: randomAvatar,
-        quote: ''
+        quote: '',
       };
       this.initialAvatar = randomAvatar;
       this.customProperties = [];

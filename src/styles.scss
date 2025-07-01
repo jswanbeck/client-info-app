@@ -50,7 +50,7 @@ button {
     &:disabled {
       background-color: $color-muted;
       opacity: 0.5;
-      cursor: not-allowed;
+      cursor: initial;
     }
   }
 
@@ -58,14 +58,14 @@ button {
     background: $color-surface;
     color: $color-text;
 
-    &:hover {
+    &:hover &:not(:disabled) {
       background: lighten($color-surface, 10%);
     }
 
     &:disabled {
       color: $color-muted;
       opacity: 0.5;
-      cursor: not-allowed;
+      cursor: initial;
     }
   }
 
@@ -75,6 +75,12 @@ button {
 
     &:hover {
       background: lighten($color-danger, 10%);
+    }
+
+    &:disabled {
+      background-color: $color-muted;
+      opacity: 0.5;
+      cursor: initial;
     }
   }
 }

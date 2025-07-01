@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import avatarData from '../../../assets/data/avatar.json';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AvatarService {
   private baseUrl = 'https://avataaars.io/';
@@ -23,7 +23,7 @@ export class AvatarService {
       `eyeType=${this.getRandomValue(avatarData.eyeType)}`,
       `eyebrowType=${this.getRandomValue(avatarData.eyebrowType)}`,
       `mouthType=${this.getRandomValue(avatarData.mouthType)}`,
-      `skinColor=${this.getRandomValue(avatarData.skinColor)}`
+      `skinColor=${this.getRandomValue(avatarData.skinColor)}`,
     ];
     return `${this.baseUrl}?${params.join('&')}`;
   }

@@ -5,16 +5,7 @@ import { ExpandablePanelModule } from './expandable-panel/expandable-panel.modul
 import { ModalModule } from './modal/modal.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ModalModule,
-    ExpandablePanelModule,
-    ConfirmationDialogModule
-  ],
-  exports: [
-    ModalModule,
-    ExpandablePanelModule,
-    ConfirmationDialogModule
-  ]
+  imports: [CommonModule, ModalModule, ExpandablePanelModule, ConfirmationDialogModule],
+  exports: [ModalModule, ExpandablePanelModule, ConfirmationDialogModule],
 })
 export class SharedUiModule {}

@@ -8,7 +8,7 @@ describe('ExpandablePanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ExpandablePanelComponent]
+      declarations: [ExpandablePanelComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ExpandablePanelComponent);
