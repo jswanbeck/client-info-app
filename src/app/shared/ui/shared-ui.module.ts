@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ConfirmationDialogModule } from './confirmation-dialog/confirmation-dialog.module';
-import { ExpandablePanelModule } from './expandable-panel/expandable-panel.module';
-import { ModalModule } from './modal/modal.module';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ExpandablePanelComponent } from './expandable-panel/expandable-panel.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  imports: [CommonModule, ModalModule, ExpandablePanelModule, ConfirmationDialogModule],
-  exports: [ModalModule, ExpandablePanelModule, ConfirmationDialogModule],
+  declarations: [ConfirmationDialogComponent, ExpandablePanelComponent, ModalComponent],
+  imports: [CommonModule],
+  exports: [ConfirmationDialogComponent, ExpandablePanelComponent, ModalComponent],
 })
-export class SharedUiModule {}
+export class SharedUIModule {}
