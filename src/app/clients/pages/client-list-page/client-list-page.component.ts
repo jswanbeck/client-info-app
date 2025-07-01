@@ -61,7 +61,7 @@ export class ClientListPageComponent implements OnInit {
             .includes(this.filterValue.toLowerCase()),
       );
     }
-    return filtered;
+    return filtered.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   get filterButtonEnabled(): boolean {
