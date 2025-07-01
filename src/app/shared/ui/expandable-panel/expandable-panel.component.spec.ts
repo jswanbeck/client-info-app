@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ExpandablePanelComponent } from './expandable-panel.component';
 
 describe('ExpandablePanelComponent', () => {
@@ -8,9 +7,8 @@ describe('ExpandablePanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpandablePanelComponent ]
-    })
-    .compileComponents();
+      declarations: [ExpandablePanelComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ExpandablePanelComponent);
     component = fixture.componentInstance;
