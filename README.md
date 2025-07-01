@@ -1,27 +1,90 @@
-# Install dependencies
+# Client Info App
 
-Run `npm install` to install dependencies
+## Prerequisites
 
-## Development server
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/) (included in Node.js)
+- [Angular CLI](https://cli.angular.io)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Install dependencies
 
-## Code scaffolding
+Run the following command to install dependencies:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+npm install
+```
+
+## Running the App and API Server Together
+
+To start both the Angular frontend and the Express API backend together, run:
+
+```
+npm start
+```
+
+This will:
+
+- Start the Angular app on [http://localhost:3000](http://localhost:3000)
+- Start the API server on [http://localhost:3001](http://localhost:3001)
+
+The Angular app will automatically reload when the source files are changed.
+
+## Running the Frontend and Backend Separately
+
+### Running the Angular App (Frontend)
+
+To start only the Angular development server:
+
+```
+npm run start:frontend
+```
+
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Running the API Server (Backend)
+
+To start only the Express API server (serves client data from `src/assets/data/clients.json`):
+
+```
+npm run start:backend
+```
+
+The API will be available at [http://localhost:3001](http://localhost:3001) by default.
+
+The server will not reload automatically when the source files are changed, and must be restarted:
+
+```
+npm run restart:backend
+```
+
+#### API Endpoints
+
+- `GET    /api/clients` — List all clients
+- `GET    /api/clients/:id` — Get a client by ID
+- `POST   /api/clients` — Add a new client
+- `PUT    /api/clients/:id` — Update a client
+- `DELETE /api/clients/:id` — Delete a client
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To build the Angular project for production:
+
+```
+npm run build
+```
+
+The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run unit tests via [Karma](https://karma-runner.github.io):
 
-## Running end-to-end tests
+```
+npm test
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Linting and Formatting
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Lint code: `npm run lint`
+- Format code: `npm run format`
+- Check formatting: `npm run format:check`
