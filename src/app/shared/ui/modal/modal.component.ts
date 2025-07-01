@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -12,7 +12,6 @@ export class ModalComponent {
 
   private backdropMouseDown = false;
   private backdropMouseUp = false;
-
 
   onBackdropMouseDown(event: MouseEvent) {
     if (event.target === event.currentTarget) {
@@ -36,5 +35,12 @@ export class ModalComponent {
 
   onClose() {
     this.closed.emit();
+  }
+
+  @HostListener('document:keydown.escape', ['$event'])
+  handleEscape(event: KeyboardEvent) {
+    if (this.open) {
+      this.onClose();
+    }
   }
 }

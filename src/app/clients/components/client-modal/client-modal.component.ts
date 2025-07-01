@@ -90,4 +90,11 @@ export class ClientModalComponent implements OnChanges {
     $event.stopPropagation();
     this.cancelled.emit();
   }
+
+  onEnter($event: Event) {
+    $event.preventDefault();
+    if (($event.target as HTMLElement).tagName.toLowerCase() !== 'button') {
+      this.onSubmit();
+    }
+  }
 }

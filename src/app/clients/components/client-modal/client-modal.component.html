@@ -21,6 +21,7 @@
             name="name"
             required
             #nameInput="ngModel"
+            (keydown.enter)="onEnter($event)"
           />
           <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error">
             Name is required.
@@ -28,18 +29,18 @@
         </div>
         <div class="form-group">
           <label for="client-title">Title</label>
-          <input id="client-title" type="text" [(ngModel)]="clientData.title" name="title" />
+          <input id="client-title" type="text" [(ngModel)]="clientData.title" name="title" (keydown.enter)="onEnter($event)" />
         </div>
         <div class="form-group">
           <label for="client-quote">Quote</label>
-          <input id="client-quote" type="text" [(ngModel)]="clientData.quote" name="quote" />
+          <input id="client-quote" type="text" [(ngModel)]="clientData.quote" name="quote" (keydown.enter)="onEnter($event)" />
         </div>
         <div class="form-group custom-properties-group">
           <label *ngIf="customProperties.length > 0">Custom Properties</label>
           <div class="custom-properties-list">
             <div class="custom-property-row" *ngFor="let prop of customProperties; let i = index">
-              <input type="text" [(ngModel)]="prop.key" name="customKey{{i}}" placeholder="Key" class="custom-key-input" />
-              <input type="text" [(ngModel)]="prop.value" name="customValue{{i}}" placeholder="Value" class="custom-value-input" />
+              <input type="text" [(ngModel)]="prop.key" name="customKey{{i}}" placeholder="Key" class="custom-key-input" (keydown.enter)="onEnter($event)" />
+              <input type="text" [(ngModel)]="prop.value" name="customValue{{i}}" placeholder="Value" class="custom-value-input" (keydown.enter)="onEnter($event)" />
               <button type="button" class="btn-secondary btn-remove" (click)="removeCustomProperty(i)">Remove</button>
             </div>
           </div>

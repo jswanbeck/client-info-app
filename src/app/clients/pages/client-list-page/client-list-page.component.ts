@@ -15,7 +15,6 @@ export class ClientListPageComponent implements OnInit {
   modalTitle = '';
   modalType: 'create' | 'edit' = 'create';
   showConfirmDelete = false;
-
   filterableKeys: Set<string> = new Set<string>();
   filterField: string = '';
   filterValue: string = '';
@@ -68,6 +67,9 @@ export class ClientListPageComponent implements OnInit {
 
   clearFilters() {
     this.activeFilters = [];
+    this.filterField = '';
+    this.filterValue = '';
+    this.searchTerm = '';
   }
 
   onClientSelected(client: Client): void {

@@ -15,7 +15,7 @@
         </label>
         <label>
           Value:
-          <input type="text" placeholder="Filter value" [(ngModel)]="filterValue" />
+          <input type="text" placeholder="Filter value" [(ngModel)]="filterValue" (keydown.enter)="addFilter()" />
         </label>
       </div>
       <div class="filter-buttons">

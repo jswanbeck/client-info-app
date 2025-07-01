@@ -12,7 +12,7 @@
       <img *ngIf="client.avatar" [src]="client.avatar" class="client-avatar" width="32" height="32" />
       <span class="client-info" [class.selected]="selectedClient && client.id === selectedClient.id">
         <span class="client-name">{{ client.name }}</span>
-        <span class="client-title" style="color: #888; margin-left: 8px; font-size: 0.95em;">{{ client.title }}</span>
+        <span class="client-title">{{ client.title }}</span>
       </span>
     </li>
   </ul>
