@@ -10,6 +10,8 @@ const mockClient: Client = {
   title: 'Test Title',
   avatar: '',
   quote: 'Test quote',
+  custom1: 'foo',
+  custom2: 42,
 };
 
 describe('ClientInfoComponent', () => {
@@ -24,11 +26,33 @@ describe('ClientInfoComponent', () => {
 
     fixture = TestBed.createComponent(ClientInfoComponent);
     component = fixture.componentInstance;
-    component.client = mockClient; // Provide mock client
+    component.client = mockClient;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should compute customProperties', () => {
+    const expected = [
+      { key: 'custom1', value: 'foo' },
+      { key: 'custom2', value: 42 },
+    ];
+    component.ngOnChanges({
+      client: {
+        currentValue: mockClient,
+        previousValue: null,
+        firstChange: false,
+        isFirstChange: () => false,
+      },
+    });
+    expect(component.customProperties).toEqual(expected);
+  });
+
+  it('should emit clientSelect when onClick is called', () => {
+    spyOn(component.clientSelect, 'emit');
+    component.onClick();
+    expect(component.clientSelect.emit).toHaveBeenCalledWith(mockClient);
   });
 });
