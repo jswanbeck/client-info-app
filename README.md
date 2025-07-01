@@ -51,11 +51,7 @@ npm run start:backend
 
 The API will be available at [http://localhost:3001](http://localhost:3001) by default.
 
-The server will not reload automatically when the source files are changed, and must be restarted:
-
-```
-npm run restart:backend
-```
+The server will not reload automatically when the source files are changed, and must be manually restarted:
 
 #### API Endpoints
 
