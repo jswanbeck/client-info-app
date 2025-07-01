@@ -19,4 +19,16 @@ describe('ConfirmationDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit confirm when onConfirm is called', () => {
+    spyOn(component.confirm, 'emit');
+    component.onConfirm();
+    expect(component.confirm.emit).toHaveBeenCalled();
+  });
+
+  it('should emit cancel when onCancel is called', () => {
+    spyOn(component.cancel, 'emit');
+    component.onCancel();
+    expect(component.cancel.emit).toHaveBeenCalled();
+  });
 });

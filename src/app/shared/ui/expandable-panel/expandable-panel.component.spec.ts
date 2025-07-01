@@ -19,4 +19,10 @@ describe('ExpandablePanelComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit closed when close is called', () => {
+    spyOn(component.closed, 'emit');
+    component.close();
+    expect(component.closed.emit).toHaveBeenCalled();
+  });
 });
