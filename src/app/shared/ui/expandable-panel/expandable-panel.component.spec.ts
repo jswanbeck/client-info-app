@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { ExpandablePanelComponent } from './expandable-panel.component';
 
 describe('ExpandablePanelComponent', () => {
