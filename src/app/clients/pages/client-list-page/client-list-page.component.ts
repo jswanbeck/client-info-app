@@ -41,7 +41,7 @@ export class ClientListPageComponent implements OnInit {
       const term = this.searchTerm.toLowerCase();
       filtered = filtered.filter(
         client =>
-          client.name.toLowerCase().includes(term) || client.title.toLowerCase().includes(term),
+          client.name.toLowerCase().includes(term) || client.title?.toLowerCase().includes(term),
       );
     }
     for (const filter of this.activeFilters) {
