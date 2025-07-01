@@ -2,13 +2,64 @@
 
 form {
   background: $color-surface;
-  color: $color-text;
   border-radius: $radius-lg;
-  padding: $space-xxl;
-  min-height: 150px;
+  color: $color-text;
   display: flex;
   flex-direction: column;
   gap: $space-md;
+  min-height: 150px;
+  padding: $space-xxl;
+}
+
+.modal-form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xxl;
+}
+
+.form-client-data {
+  display: flex;
+  gap: $space-xxl;
+  justify-content: center;
+}
+
+.avatar-preview-column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+}
+
+.avatar-preview {
+  align-items: center;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  margin: $space-sm 0;
+  overflow: hidden;
+  width: 120px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.avatar-actions {
+  display: flex;
+  gap: $space-sm;
+  justify-content: center;
+  margin-top: $space-md;
+
+  button {
+    font-size: $space-md;
+    padding: $space-sm;
+  }
+}
+
+.form-fields {
+  width: 100%;
 }
 
 .form-group {
@@ -24,92 +75,32 @@ label {
   margin-bottom: $space-xs;
 }
 
-.modal-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: $space-md;
-  margin-top: $space-lg;
-}
-
 .error {
   color: $color-danger;
   font-size: $space-lg;
   margin: 0;
 }
 
-.modal-form-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.form-fields {
-  width: 100%;
-}
-
-.form-client-data {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.avatar-preview-column {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.avatar-preview {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin: $space-sm 0;
-}
-
-.avatar-preview img {
-  width: 100%;
-  height: 100%;
-}
-
-.avatar-actions {
-  display: flex;
-  flex-direction: row;
-  gap: $space-sm;
-  margin-top: $space-md;
-  justify-content: center;
-  > button {
-    font-size: $space-md;
-    padding: $space-sm;
-  }
-}
-
 .custom-properties-group {
-  margin-top: $space-xl;
   background: $color-surface;
   border-radius: $radius-md;
+  margin-top: $space-xl;
 }
 
 .custom-properties-list {
-  max-height: 160px;
-  overflow-y: auto;
-  width: 500px;
   display: flex;
   flex-direction: column;
   gap: $space-xs;
   margin-bottom: $space-sm;
+  max-height: 160px;
+  overflow-y: auto;
+  width: 500px;
 }
 
 .custom-property-row {
-  display: flex;
-  flex-direction: row;
-  gap: $space-xs;
   align-items: center;
+  display: flex;
+  gap: $space-xs;
 }
 
 .custom-key-input,
@@ -119,9 +110,9 @@ label {
 }
 
 .btn-remove {
-  color: $color-danger;
   background: transparent;
   border: none;
+  color: $color-danger;
   cursor: pointer;
   font-size: $space-lg;
   padding: $space-sm;
@@ -130,4 +121,11 @@ label {
 .custom-properties-actions {
   display: flex;
   justify-content: flex-end;
+}
+
+.modal-actions {
+  display: flex;
+  gap: $space-md;
+  justify-content: flex-end;
+  margin-top: $space-lg;
 }

@@ -1,58 +1,55 @@
 @import '/src/tokens.scss';
 
 .client-list-container {
-  height: 580px;
-  overflow-y: auto;
   background: $color-surface;
   border-radius: $radius-md;
+  height: 580px;
+  overflow-y: auto;
 }
 
 .client-list-table {
   list-style: none;
-  padding: 0;
   margin: 2%;
+  padding: 0;
 }
 
 .client-list-row {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: $space-sm;
-  color: $color-text;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   align-items: center;
+  color: $color-text;
   cursor: pointer;
+  display: flex;
+  margin-bottom: $space-sm;
   transition:
     background 0.2s,
     color 0.2s;
 }
 
 .client-info {
-  display: flex;
   background: $color-surface-alt;
-  padding: $space-md;
   border-radius: $radius-md;
+  display: flex;
+  padding: $space-md;
   width: 100%;
-}
 
-.client-info:hover,
-.client-info:focus {
-  background: $color-surface-hover;
-  color: $color-accent;
-}
+  &:hover,
+  &:focus {
+    background: $color-surface-hover;
+    color: $color-accent;
+  }
 
-.client-info.selected {
-  outline: 1px solid $color-accent;
-  color: $color-accent;
+  &.selected {
+    color: $color-accent;
+    outline: 1px solid $color-accent;
+  }
 }
 
 .client-title {
-  color: #888;
-  margin-left: 8px;
+  color: $color-muted;
   font-size: 0.95em;
+  margin-left: $space-sm;
 }
 
 .client-avatar {
+  margin-right: $space-md;
   vertical-align: middle;
-  margin-right: 12px;
 }

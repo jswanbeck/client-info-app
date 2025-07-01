@@ -1,18 +1,18 @@
 @import '/src/tokens.scss';
 
 .modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: flex;
   align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: flex;
   justify-content: center;
+  left: 0;
   opacity: 0;
   pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
 
   &.show {
     opacity: 1;
@@ -22,45 +22,51 @@
 }
 
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  align-items: center;
   bottom: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 1010;
-  border-radius: 8px;
-  position: relative;
-  min-width: 320px;
+  left: 0;
   min-height: 120px;
+  min-width: 320px;
   opacity: 0;
-  transform: scale(0.95);
   pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: scale(0.95);
+  z-index: 1010;
 
   &.show {
     opacity: 1;
+    pointer-events: auto;
     transform: scale(1);
     transition:
       opacity 0.3s,
       transform 0.3s;
-    pointer-events: auto;
   }
 }
 
 .modal-content {
   background: $color-surface;
-  color: $color-text;
   border-radius: $radius-lg;
-  min-width: 350px;
-  min-height: 150px;
-  max-width: 90vw;
-  max-height: 90vh;
-  padding: $space-xl;
-  position: relative;
+  color: $color-text;
   display: flex;
   flex-direction: column;
+  max-height: 90vh;
+  max-width: 90vw;
+  min-height: 150px;
+  min-width: 350px;
+  padding: $space-xl;
+  position: relative;
+}
+
+.modal-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $space-lg;
+  padding: $space-md $space-xl;
 }
 
 .modal-title {
@@ -71,20 +77,12 @@
   background: none;
   border: none;
   color: $color-muted;
+  cursor: pointer;
   font-size: 2rem;
   padding: 0;
-  cursor: pointer;
   transition: color 0.2s;
+
   &:hover {
     color: $color-accent;
   }
-}
-
-.modal-header {
-  margin-bottom: $space-lg;
-  padding: $space-md $space-xl;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }

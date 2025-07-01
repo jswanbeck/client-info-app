@@ -1,6 +1,5 @@
 @import '/src/tokens.scss';
 
-/* You can add global styles to this file, and also import other style files */
 * {
   font-family: 'Courier New', Courier, monospace;
 }
@@ -9,32 +8,32 @@ html,
 body {
   background: $color-bg;
   color: $color-text;
-
-  scrollbar-width: thin;
   scrollbar-color: $color-accent $color-surface;
+  scrollbar-width: thin;
 
   &::-webkit-scrollbar {
-    width: 0.6rem;
     background: $color-surface;
     border-radius: $radius-md;
   }
+
   &::-webkit-scrollbar-thumb {
     background: $color-accent;
     border-radius: $radius-md;
-    min-height: 2rem;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: lighten($color-accent, 10%);
+    min-height: $space-xxl;
+
+    &:hover {
+      background: lighten($color-accent, 10%);
+    }
   }
 }
 
 button {
   border: none;
   border-radius: $radius-md;
-  padding: $space-md $space-xl;
-  font-size: $space-lg;
   cursor: pointer;
+  font-size: $space-lg;
   font-weight: bold;
+  padding: $space-md $space-xl;
   transition:
     background 0.2s,
     color 0.2s;
@@ -43,14 +42,14 @@ button {
     background: $color-accent;
     color: $color-bg;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: lighten($color-accent, 10%);
     }
 
     &:disabled {
       background-color: $color-muted;
+      cursor: not-allowed;
       opacity: 0.5;
-      cursor: initial;
     }
   }
 
@@ -58,14 +57,14 @@ button {
     background: $color-surface;
     color: $color-text;
 
-    &:hover &:not(:disabled) {
+    &:hover:not(:disabled) {
       background: lighten($color-surface, 10%);
     }
 
     &:disabled {
       color: $color-muted;
+      cursor: not-allowed;
       opacity: 0.5;
-      cursor: initial;
     }
   }
 
@@ -73,14 +72,14 @@ button {
     background: $color-danger;
     color: $color-text;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: lighten($color-danger, 10%);
     }
 
     &:disabled {
       background-color: $color-muted;
+      cursor: not-allowed;
       opacity: 0.5;
-      cursor: initial;
     }
   }
 }
@@ -88,11 +87,11 @@ button {
 input[type='text'],
 input[type='search'] {
   background: $color-surface-alt;
-  color: $color-text;
   border: none;
   border-radius: $radius-md;
-  padding: $space-md;
+  color: $color-text;
   outline: none;
+  padding: $space-md;
   transition: background 0.2s;
 
   &:focus {
@@ -101,8 +100,8 @@ input[type='search'] {
 
   &::-webkit-search-cancel-button {
     cursor: pointer;
-    transition: filter 0.2s;
     filter: contrast(0) brightness(1);
+    transition: filter 0.2s;
 
     &:hover {
       filter: contrast(1) brightness(2);
